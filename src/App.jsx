@@ -57,12 +57,20 @@ function Footer() {
   );
 }
 
+function Content() {
+  return (
+    <div>
+      <CreatePost />
+      <Posts />
+    </div>
+  );
+}
+
 function App() {
   return (
     <div>
       <Header />
-      <CreatePost />
-      <Posts />
+      <Content />
       <Footer />
     </div>
   );
