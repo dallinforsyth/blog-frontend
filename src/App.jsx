@@ -1,6 +1,4 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import "./App.css";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 function PostsNew() {
@@ -54,14 +52,15 @@ function Footer() {
 }
 
 function Content() {
-  let posts = [];
+  const [posts, setPosts] = useState([]);
+
   const handleIndexPosts = () => {
     axios.get("http://localhost:3000/posts.json").then((response) => {
       console.log(response.data);
-      posts = response.data;
+      setPosts(response.data);
     });
   };
-
+  useEffect(handleIndexPosts, []);
   // let posts = [
   //   {
   //     id: 1,
