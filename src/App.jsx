@@ -19,25 +19,20 @@ function PostsNew() {
   );
 }
 
-function PostsIndex() {
+function PostsIndex(props) {
+  console.log(props);
   return (
     <div id="posts-index">
       <h1>All posts</h1>
-      <div>
-        <h2>Geese</h2>
-        <h5>Totally rad geese out there</h5>
-        <img src="https://www.disneyclips.com/images/images/goofy29.png" />
-      </div>
-      <div>
-        <h2>Apples</h2>
-        <h5>You get some of those apples form japan?</h5>
-        <img src="https://i.ebayimg.com/images/g/obEAAOSwCgleNsl8/s-l640.jpg" />
-      </div>
-      <div>
-        <h2>Rockets</h2>
-        <h5>Soon I want to fly on a rocket to the moon</h5>
-        <img src="https://imgix.bustle.com/uploads/image/2022/12/19/11ab3211-cadc-4b68-9c7a-e8ee149353e2-shutterstock_editorial_9224659b.jpg?w=1200&h=630&fit=crop&crop=focalpoint&fm=jpg&fp-x=0.42&fp-y=0.6127" />
-      </div>
+      {props.posts.map((post) => {
+        return (
+          <div>
+            <h2>{post.title}</h2>
+            <h5>{post.body}</h5>
+            <img src={post.image} />
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -58,10 +53,31 @@ function Footer() {
 }
 
 function Content() {
+  let posts = [
+    {
+      id: 1,
+      title: "Geese",
+      body: "Totally rad geese out there",
+      image: "https://www.disneyclips.com/images/images/goofy29.png",
+    },
+    {
+      id: 2,
+      title: "Apples",
+      body: "You get some of those apples form japan?",
+      image: "https://i.ebayimg.com/images/g/obEAAOSwCgleNsl8/s-l640.jpg",
+    },
+    {
+      id: 3,
+      title: "Rockets",
+      body: "Soon I want to fly on a rocket to the moon",
+      image:
+        "https://imgix.bustle.com/uploads/image/2022/12/19/11ab3211-cadc-4b68-9c7a-e8ee149353e2-shutterstock_editorial_9224659b.jpg?w=1200&h=630&fit=crop&crop=focalpoint&fm=jpg&fp-x=0.42&fp-y=0.6127",
+    },
+  ];
   return (
     <div>
       <PostsNew />
-      <PostsIndex />
+      <PostsIndex posts={posts} />
     </div>
   );
 }
