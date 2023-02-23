@@ -2,7 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 
-function CreatePost() {
+function PostsNew() {
   return (
     <div id="posts-new">
       <h1>New post</h1>
@@ -19,7 +19,7 @@ function CreatePost() {
   );
 }
 
-function Posts() {
+function PostsIndex() {
   return (
     <div id="posts-index">
       <h1>All posts</h1>
@@ -60,8 +60,8 @@ function Footer() {
 function Content() {
   return (
     <div>
-      <CreatePost />
-      <Posts />
+      <PostsNew />
+      <PostsIndex />
     </div>
   );
 }
